@@ -2,13 +2,19 @@ let nenType = "enhancement";
 let health = 100;
 let attacks = [];
 let fighting;
+let punch = 10;
 let bossHealth;
 let nenProficiency = "basic";
 let gonsNenPts = 50;
+let attackList = [punch];
+let dodge = 30;
+let jajanken = 60;
+let limitationTransformation = 140;
 
 const gonButton1 = document.querySelector('#gonButton1');
 const gonButton2 = document.querySelector('#gonButton2');
-const gonButton3 = document.querySelector('#gonButton3');d
+const gonButton3 = document.querySelector('#gonButton3');
+const gonHomeButton = document.querySelector('#gonAdventure');
 
 const text = document.querySelector('#gonsText');
 
@@ -16,7 +22,14 @@ const gonNenPoints = document.querySelector('#gonsNenPoints');
 const gonNenLevel = document.querySelector('#gonNenLevel');
 const gonHealth = document.querySelector('#gonHealth');
 
-
+const gonHome = [
+    {
+        name: "Main Menu",
+        "button text": ['Continue Journey', 'Learn New Move', 'Boss Fight'],
+        "button functions" : [goHunterExam, goMovelist, goGonBosses],
+        text : "Main Menu, continue your journey."
+    }
+]
 
 const locations = [
     {
@@ -25,15 +38,14 @@ const locations = [
         "button functions": [goHunterExam, goPhantonTroupe, goChimeraAnt],
         text: "Which Arc are we going for first? I suggest you do them in order."
     },
-
 ]
 
 const moveList = [
     {
         name: "Move List",
         "button text": ['Dodge', 'Jajanken', 'Limitation Transformation'],
-        "button functions": [],
-        text:"Dodge: 30 Nen Points , JajanKen: 60 Nen Points, Limitatio Transformation: 14o Nen Points "
+        "button functions": [goDodge, goJajanken, goLimitationTransformation],
+        text:"Dodge: 30 Nen Points , JajanKen: 60 Nen Points, Limitation Transformation: 14o Nen Points. "
     }
 ]
 
@@ -64,12 +76,20 @@ const chimerAntArc = [
     }
 ]
 
-
-
-
 gonButton1.onclick = goHunterExam;
 gonButton2.onclick = goMovelist;
 gonButton3.onclick = goGonBosses;
+gonHomeButton.onclick = goGonMenu;
+
+function gonMenu(gonHome) {
+    gonButton1.innerText = gonHome["button text"][0];
+    gonButton2.innerText = gonHome["button text"][1];
+    gonButton3.innerText = gonHome["button text"][2];
+    gonButton1.onclick = gonHome["button functions"][0];
+    gonButton2.onclick = gonHome["button functions"][1];
+    gonButton3.onclick = gonHome["button functions"][2];
+    text.innerHTML = gonHome.text;
+}
 
 function update(location) {
     gonButton1.innerText = location["button text"][0];
@@ -85,9 +105,9 @@ function buyMoves(moveList) {
     gonButton1.innerText = moveList['button text'][0];
     gonButton2.innerText = moveList['button text'][1];
     gonButton3.innerText = moveList['button text'][2];
-    gonButton1.onclick = moveList['button function'][0];
-    gonButton2.onclick = moveList['button function'][1];
-    gonButton3.onclick = moveList['button function'][2];
+    gonButton1.onclick = moveList['button functions'][0];
+    gonButton2.onclick = moveList['button functions'][1];
+    gonButton3.onclick = moveList['button functions'][2];
     text.innerHTML = moveList.text;
 }
 
@@ -95,9 +115,9 @@ function gonFights(gonBosses) {
     gonButton1.innerText = gonBosses['button text'][0];
     gonButton2.innerText = gonBosses['button text'][1];
     gonButton3.innerText = gonBosses['button text'][2];
-    gonButton1.onclick = gonBosses['button function'][0];
-    gonButton2.onclick = gonBosses['button function'][1];
-    gonButton3.onclick = gonBosses['button function'][2];
+    gonButton1.onclick = gonBosses['button functions'][0];
+    gonButton2.onclick = gonBosses['button functions'][1];
+    gonButton3.onclick = gonBosses['button functions'][2];
     text.innerHTML = gonBosses.text;
 }
 
@@ -121,6 +141,10 @@ function humansVsAnts(chimeraAnt) {
     text.innerHTML = chimeraAntc.text;
 }
 
+function goGonMenu() {
+    gonMenu(gonHome[0]);
+}
+
 function goHunterExam() {
     update(locations[0]);
 }
@@ -130,7 +154,7 @@ function goMovelist() {
 }
 
 function goGonBosses() {
-    gonBosses(gonBosses[0]); 
+    gonFights(gonBosses[0]); 
 }
 
 function goPhantonTroupe() {
@@ -159,7 +183,39 @@ function mortyAnswer() {
     text.innerHTML = "Sorry, this answer is incorrect and you've lost nen points.";
 }
 
+function goDodge() {
+    if (gonNenPoints < dodge) {
+        text.innerHTML = "You don't have enough points to purchase this move.";
+    } else {
+        let newPoints = gonNenPoints - dodge;
+        gonNenPoints.innerHTML = newPoints;
+        text.innerHTML = "You can now dodge attacks in your next fight.";
+        attackList.push(dodge);
 
+    }
+}
+
+function goJajanken() {
+    if (gonNenPoints < jajanken) {
+        text.innerHTML = "You don't have enough points to purchase this move.";
+    } else {
+        let newPoints = gonNenPoints - jajanken;
+        gonNenPoints.innerHTML = newPoints;
+        text.innerHTML = "You can now use Jajanken in your next fight.";
+        attackList.push(jajanken);
+    }
+}
+
+function goLimitationTransformation() {
+    if (gonNenPoints < jajanken) {
+        text.innerHTML = "You don't have enough points to purchase this move.";
+    } else {
+        let newPoints = gonNenPoints - jajanken;
+        gonNenPoints.innerHTML = newPoints;
+        text.innerHTML = "You can now transform in your next fight. Your attack power will be doubled.";
+        attackList.push(limitationTransformation);
+    }
+}
 
 
 
