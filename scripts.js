@@ -84,12 +84,13 @@ const chimerAntArc = [
         text : "Who is repsonsible for killing kite?"
     }
 ]
-
+/*Main menu button options */
 gonButton1.onclick = goStartJourney;
 gonButton2.onclick = goMovelist;
 gonButton3.onclick = goGonBosses;
 gonHomeButton.onclick = goGonMenu;
 
+/*button text and functions for each location*/
 function gonMenu(gonHome) {
     gonButton1.innerText = gonHome["button text"][0];
     gonButton2.innerText = gonHome["button text"][1];
@@ -160,6 +161,7 @@ function humansVsAnts(chimeraAnt) {
     text.innerHTML = chimeraAnt.text;
 }
 
+/*Button that navigate the main menu end here*/
 function goGonMenu() {
     gonMenu(gonHome[0]);
 }
@@ -188,6 +190,7 @@ function goChimeraAnt() {
     humansVsAnts(chimerAntArc[0]);
 }
 
+/*Buttons that control the addition or subtraction of points in each arc. */
 function cameronAnswer() {
     let newPoints = gonsNenPts + 5;
     gonNenPoints.innerText = newPoints;
