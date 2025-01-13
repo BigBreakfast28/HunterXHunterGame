@@ -191,23 +191,7 @@ function goChimeraAnt() {
 }
 
 /*Buttons that control the addition or subtraction of points in each arc. */
-function cameronAnswer() {
-    let newPoints = gonsNenPts + 5;
-    gonNenPoints.innerText = newPoints;
-    text.innerHTML = "You have selected the correct answer!";
-}
 
-function sashaAnswer() {
-    let newPoints = gonsNenPts - 10;
-    gonNenPoints.innerText = newPoints;
-    text.innerHTML = "Sorry, this answer is incorrect and you've lost nen points.";
-}
-
-function mortyAnswer() {
-    let newPoints = gonsNenPts - 10;
-    gonNenPoints.innerText = newPoints;
-    text.innerHTML = "Sorry, this answer is incorrect and you've lost nen points.";
-}
 
 function goDodge() {
     if (gonsNenPts<30) {
