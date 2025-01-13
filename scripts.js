@@ -26,7 +26,7 @@ const gonHome = [
     {
         name: "Main Menu",
         "button text": ['Continue Journey', 'Learn New Move', 'Boss Fight'],
-        "button functions" : [goHunterExam, goMovelist, goGonBosses],
+        "button functions" : [ goStartJourney,goMovelist, goGonBosses],
         text : "Main Menu, continue your journey."
     }
 ]
@@ -45,7 +45,7 @@ const moveList = [
         name: "Move List",
         "button text": ['Dodge', 'Jajanken', 'Limitation Transformation'],
         "button functions": [goDodge, goJajanken, goLimitationTransformation],
-        text:"Dodge: 30 Nen Points , JajanKen: 60 Nen Points, Limitation Transformation: 14o Nen Points. "
+        text: `Dodge: 30 Nen Points - JajanKen: 60 Nen Points - Limitation Transformation: 14o Nen Points.`
     }
 ]
 
@@ -55,6 +55,15 @@ const gonBosses = [
         "button text": ['Genthru', 'Hisoka', 'Neferpituo'],
         "button functions": [],
         text: "Choose a boss to battle!"
+    }
+]
+
+const gonExam = [
+    {
+        name: "Hunter Exam",
+        "button text": ['10km', '130km', '80km'],
+        "button functions": [],
+        text: "How many kilometers was the tunnel during the first phase of the hunter exam?"
     }
 ]
 
@@ -76,7 +85,7 @@ const chimerAntArc = [
     }
 ]
 
-gonButton1.onclick = goHunterExam;
+gonButton1.onclick = goStartJourney;
 gonButton2.onclick = goMovelist;
 gonButton3.onclick = goGonBosses;
 gonHomeButton.onclick = goGonMenu;
@@ -121,6 +130,16 @@ function gonFights(gonBosses) {
     text.innerHTML = gonBosses.text;
 }
 
+function gonHunterExam(gonExam) {
+    gonButton1.innerText = gonExam['button text'][0];
+    gonButton2.innerText = gonExam['button text'][1];
+    gonButton3.innerText = gonExam['button text'][2];
+    gonButton1.onclick = gonExam['button functions'][0];
+    gonButton2.onclick = gonExam['button functions'][1];
+    gonButton3.onclick =gonExam['button functions'][2];
+    text.innerHTML = gonExam.text;
+}
+
 function yorkNewCity(phantomTroupArc) {
     gonButton1.innerText = phantomTroupArc["button text"][0];
     gonButton2.innerText = phantomTroupArc["button text"][1];
@@ -137,15 +156,15 @@ function humansVsAnts(chimeraAnt) {
     gonButton3.innerText = chimeraAnt["button text"][2];
     gonButton1.onclick = chimeraAnt["button functions"][0];
     gonButton2.onclick = chimeraAnt["button functions"][1];
-    gonButton3.onclick = pchimeraAnt["button functions"][2];
-    text.innerHTML = chimeraAntc.text;
+    gonButton3.onclick = chimeraAnt["button functions"][2];
+    text.innerHTML = chimeraAnt.text;
 }
 
 function goGonMenu() {
     gonMenu(gonHome[0]);
 }
 
-function goHunterExam() {
+function goStartJourney() {
     update(locations[0]);
 }
 
@@ -155,6 +174,10 @@ function goMovelist() {
 
 function goGonBosses() {
     gonFights(gonBosses[0]); 
+}
+
+function goHunterExam() {
+   gonHunterExam(gonExam[0]);
 }
 
 function goPhantonTroupe() {
@@ -184,10 +207,10 @@ function mortyAnswer() {
 }
 
 function goDodge() {
-    if (gonNenPoints < dodge) {
+    if (gonsNenPts<30) {
         text.innerHTML = "You don't have enough points to purchase this move.";
     } else {
-        let newPoints = gonNenPoints - dodge;
+        let newPoints = gonsNenPts - dodge;
         gonNenPoints.innerHTML = newPoints;
         text.innerHTML = "You can now dodge attacks in your next fight.";
         attackList.push(dodge);
@@ -196,10 +219,10 @@ function goDodge() {
 }
 
 function goJajanken() {
-    if (gonNenPoints < jajanken) {
+    if (gonNenPoints < 60) {
         text.innerHTML = "You don't have enough points to purchase this move.";
     } else {
-        let newPoints = gonNenPoints - jajanken;
+        let newPoints = gonNenPoints - 60
         gonNenPoints.innerHTML = newPoints;
         text.innerHTML = "You can now use Jajanken in your next fight.";
         attackList.push(jajanken);
@@ -207,15 +230,13 @@ function goJajanken() {
 }
 
 function goLimitationTransformation() {
-    if (gonNenPoints < jajanken) {
+    if (gonNenPoints <160) {
         text.innerHTML = "You don't have enough points to purchase this move.";
     } else {
-        let newPoints = gonNenPoints - jajanken;
+        let newPoints = gonNenPoints - 160;
         gonNenPoints.innerHTML = newPoints;
         text.innerHTML = "You can now transform in your next fight. Your attack power will be doubled.";
         attackList.push(limitationTransformation);
     }
 }
-
-
 
