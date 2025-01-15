@@ -10,6 +10,13 @@ let attackList = [punch];
 let dodge = 30;
 let jajanken = 60;
 let limitationTransformation = 140;
+let minorPenalty = 10;
+let mediumPenalty = 20;
+let majorPenalty = 50;
+let minorReward = 10;
+let mediumReward = 20;
+let majorReward = 50;
+let gonEarnedNen = [50];
 
 const gonButton1 = document.querySelector('#gonButton1');
 const gonButton2 = document.querySelector('#gonButton2');
@@ -49,20 +56,11 @@ const moveList = [
     }
 ]
 
-const gonBosses = [
-    {
-        name: "Gon Bosses",
-        "button text": ['Genthru', 'Hisoka', 'Neferpituo'],
-        "button functions": [],
-        text: "Choose a boss to battle!"
-    }
-]
-
 const gonExam = [
     {
         name: "Hunter Exam",
         "button text": ['10km', '130km', '80km'],
-        "button functions": [],
+        "button functions": [subtractPoints, subtractPoints, addPoints],
         text: "How many kilometers was the tunnel during the first phase of the hunter exam?"
     }
 ]
@@ -84,6 +82,16 @@ const chimerAntArc = [
         text : "Who is repsonsible for killing kite?"
     }
 ]
+
+const gonBosses = [
+    {
+        name: "Gon Bosses",
+        "button text": ['Genthru', 'Hisoka', 'Neferpituo'],
+        "button functions": [],
+        text: "Choose a boss to battle!"
+    }
+]
+
 /*Main menu button options */
 gonButton1.onclick = goStartJourney;
 gonButton2.onclick = goMovelist;
@@ -191,6 +199,11 @@ function goChimeraAnt() {
 }
 
 /*Buttons that control the addition or subtraction of points in each arc. */
+//Come up with a new way to add and subtract points. I need to do all addition within one function somehow. 
+function addPoints(hunterExam, phantomTroup, chimeraAnt) {
+    //lets add some logic here so that I can determine how much to add based on each arc.
+}
+
 
 
 function goDodge() {
@@ -226,4 +239,5 @@ function goLimitationTransformation() {
         attackList.push(limitationTransformation);
     }
 }
+
 
