@@ -1,7 +1,5 @@
 let nenType = "enhancement";
 let health = 100;
-let attacks = [];
-let fighting;
 let punch = 10;
 let bossHealth;
 let nenProficiency = "basic";
@@ -9,22 +7,18 @@ let gonsNenPts = 50;
 let attackList = [punch];
 let dodge = 30;
 let jajanken = 60;
-let limitationTransformation = 140;
-let minorPenalty = 10;
-let mediumPenalty = 20;
-let majorPenalty = 50;
-let minorReward = 10;
-let mediumReward = 20;
-let majorReward = 50;
-let gonEarnedNen = [50];
+let healPoints = 30;
 
+
+//Let do something different and classify the points based on each arc instead of individually.
+
+const gonHealPoints = document.getElementById('gonHealPoints');
+const monsterHealth = document.getElementById('#monsterHealth');
 const gonButton1 = document.querySelector('#gonButton1');
 const gonButton2 = document.querySelector('#gonButton2');
 const gonButton3 = document.querySelector('#gonButton3');
 const gonHomeButton = document.querySelector('#gonAdventure');
-
 const text = document.querySelector('#gonsText');
-
 const gonNenPoints = document.querySelector('#gonsNenPoints');
 const gonNenLevel = document.querySelector('#gonNenLevel');
 const gonHealth = document.querySelector('#gonHealth');
@@ -51,7 +45,7 @@ const moveList = [
     {
         name: "Move List",
         "button text": ['Dodge', 'Jajanken', 'Limitation Transformation'],
-        "button functions": [goDodge, goJajanken, goLimitationTransformation],
+        "button functions": [goDodge, goJajanken, goBuyhealth],
         text: `Dodge: 30 Nen Points - JajanKen: 60 Nen Points - Limitation Transformation: 14o Nen Points.`
     }
 ]
@@ -69,7 +63,7 @@ const phantomTroupArc = [
     {
         name: "Kurapika Nen Ability",
         "button text": ['Jajaken', 'lighting flash' , 'Dowsing chain'],
-        "button functions" : [],
+        "button functions" : [subtractPoints, subtractPoints, addPoints],
         text : "What Nen ability does Kurapika have?"
     }
 ]
@@ -78,7 +72,7 @@ const chimerAntArc = [
     {
         name: "Evil General",
         "button text": ['King', 'NeferPitou' , 'Youpi'],
-        "button functions" : [],
+        "button functions" : [subtractPoints, addPoints, subtractPoints],
         text : "Who is repsonsible for killing kite?"
     }
 ]
@@ -87,9 +81,34 @@ const gonBosses = [
     {
         name: "Gon Bosses",
         "button text": ['Genthru', 'Hisoka', 'Neferpituo'],
-        "button functions": [],
+        "button functions": [fighting, fighting,fighting],
         text: "Choose a boss to battle!"
     }
+]
+
+const gonBattles = [
+    {
+        name: "Genthru",
+        "button text" : ['punch', 'dodge', 'jajanken'],
+        "button functions": [],
+        text: "Win this battle then return home"
+    },
+
+    {
+        name: "Hisoka",
+        "button text": ['punch', 'dodge', 'jajanken'],
+        "button functions": [],
+        text: "Win this battle then return home"
+
+    },
+
+    {
+        name: "Hisoka",
+        "button text": ['punch', 'dodge', 'jajanken'],
+        "button functions": [],
+        text: "Win this battle then return home"
+    },
+
 ]
 
 /*Main menu button options */
@@ -97,6 +116,8 @@ gonButton1.onclick = goStartJourney;
 gonButton2.onclick = goMovelist;
 gonButton3.onclick = goGonBosses;
 gonHomeButton.onclick = goGonMenu;
+
+gonHealPoints.innerHTML = healPoints;
 
 /*button text and functions for each location*/
 function gonMenu(gonHome) {
@@ -169,6 +190,7 @@ function humansVsAnts(chimeraAnt) {
     text.innerHTML = chimeraAnt.text;
 }
 
+
 /*Button that navigate the main menu end here*/
 function goGonMenu() {
     gonMenu(gonHome[0]);
@@ -200,11 +222,21 @@ function goChimeraAnt() {
 
 /*Buttons that control the addition or subtraction of points in each arc. */
 //Come up with a new way to add and subtract points. I need to do all addition within one function somehow. 
-function addPoints(hunterExam, phantomTroup, chimeraAnt) {
-    //lets add some logic here so that I can determine how much to add based on each arc.
+
+function addPoints() {   
+    gonsNenPts += 20;
+    gonNenPoints.innerText = gonsNenPts
+    text.innerText = "That's correct!";
 }
 
+function bonusPoints() {
+    gonsNenPts += Math.floor(Math.random() * 100);
+    gonNenPoints.innerText = gonsNenPts;
+}
 
+function subtractPoints() {
+    text.innerHTML = "Sorry but this answer is incorrect!";
+}
 
 function goDodge() {
     if (gonsNenPts<30) {
@@ -222,6 +254,7 @@ function goJajanken() {
     if (gonNenPoints < 60) {
         text.innerHTML = "You don't have enough points to purchase this move.";
     } else {
+
         let newPoints = gonNenPoints - 60
         gonNenPoints.innerHTML = newPoints;
         text.innerHTML = "You can now use Jajanken in your next fight.";
@@ -229,15 +262,13 @@ function goJajanken() {
     }
 }
 
-function goLimitationTransformation() {
-    if (gonNenPoints <160) {
-        text.innerHTML = "You don't have enough points to purchase this move.";
-    } else {
-        let newPoints = gonNenPoints - 160;
-        gonNenPoints.innerHTML = newPoints;
-        text.innerHTML = "You can now transform in your next fight. Your attack power will be doubled.";
-        attackList.push(limitationTransformation);
-    }
+function goBuyhealth() {
+    
+}
+
+//lets start designing out the fighting action
+function fighting() {
+    text.innerHTML = "You are now fighting";
 }
 
 

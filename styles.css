@@ -136,6 +136,12 @@
 
 }
 
+#monsterStats {
+    background-color: red;
+    padding: 0.5vw;
+    margin: 1vw 0vw 1vw 0vw;
+    display: none;
+}
 
 
 /*@media screen and (min-width: 389px) and (max-width: 845) {
