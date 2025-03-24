@@ -3,11 +3,13 @@ let health = 100;
 let punch = 10;
 let bossHealth;
 let nenProficiency = "basic";
-let gonsNenPts = 50;
 let attackList = [punch];
-let dodge = 30;
-let jajanken = 60;
+let nenPoints = 30;
+let dodgeMove;
+let jajakenMove;
+let rushMove;
 let healPoints = 30;
+
 
 
 //Let do something different and classify the points based on each arc instead of individually.
@@ -22,6 +24,7 @@ const text = document.querySelector('#gonsText');
 const gonNenPoints = document.querySelector('#gonsNenPoints');
 const gonNenLevel = document.querySelector('#gonNenLevel');
 const gonHealth = document.querySelector('#gonHealth');
+
 
 const gonHome = [
     {
@@ -45,16 +48,16 @@ const moveList = [
     {
         name: "Move List",
         "button text": ['Dodge', 'Jajanken', 'Limitation Transformation'],
-        "button functions": [goDodge, goJajanken, goBuyhealth],
-        text: `Dodge: 30 Nen Points - JajanKen: 60 Nen Points - Limitation Transformation: 14o Nen Points.`
+        "button functions": [gododge, gojajaken, goRush],
+        text: `<ul><li class='moves'>Dodge: 30 Nen Points </li><li class='moves'>JajaKen: 60 Nen Points </li><li class='moves'>Limitation Transformation: 140 Nen Points </li></ul>`
     }
 ]
-
+//Dodge: 30 Nen Points - JajanKen: 60 Nen Points - Limitation Transformation: 14o Nen Points.
 const gonExam = [
     {
         name: "Hunter Exam",
         "button text": ['10km', '130km', '80km'],
-        "button functions": [subtractPoints, subtractPoints, addPoints],
+        "button functions": [pointLoss, pointLoss, pointAdd],
         text: "How many kilometers was the tunnel during the first phase of the hunter exam?"
     }
 ]
@@ -63,7 +66,7 @@ const phantomTroupArc = [
     {
         name: "Kurapika Nen Ability",
         "button text": ['Jajaken', 'lighting flash' , 'Dowsing chain'],
-        "button functions" : [subtractPoints, subtractPoints, addPoints],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
         text : "What Nen ability does Kurapika have?"
     }
 ]
@@ -72,7 +75,7 @@ const chimerAntArc = [
     {
         name: "Evil General",
         "button text": ['King', 'NeferPitou' , 'Youpi'],
-        "button functions" : [subtractPoints, addPoints, subtractPoints],
+        "button functions" : [pointLoss, pointAdd, pointLoss],
         text : "Who is repsonsible for killing kite?"
     }
 ]
@@ -222,45 +225,52 @@ function goChimeraAnt() {
 
 /*Buttons that control the addition or subtraction of points in each arc. */
 //Come up with a new way to add and subtract points. I need to do all addition within one function somehow. 
-
-function addPoints() {   
-    gonsNenPts += 20;
-    gonNenPoints.innerText = gonsNenPts
-    text.innerText = "That's correct!";
+//Im going to try and create a class that deals with the adding and subtracting of points 
+function pointAdd() { 
+    let newPoints = nenPoints += Math.floor(Math.random() * 70);;
+    gonNenPoints.innerHTML = newPoints;
+    text.innerHTML = "You're correct! You've gained some nen points and health points!";
+    let newHealPoints = healPoints += Math.floor((Math.random() * 5) +5);
+    gonHealPoints.innerHTML = newHealPoints;
 }
 
-function bonusPoints() {
-    gonsNenPts += Math.floor(Math.random() * 100);
+function pointLoss() {
+    let newPoints = nenPoints -= Math.floor((Math.random() * 70)+ 10);
+    gonNenPoints.innerHTML = newPoints;
+    text.innerHTML = "You're wrong, you've had some nen points subtracted from your score.";
+}
+
+function gododge() {
+    if (nenPoints > 70) {
+    let newPoints = nenPoints -= 70;
+    gonNenPoints.innerHTML = newPoints;
+    text.innerHTML = "Dodge has now been added to your move list!";
+    attackList.push(dodgeMove);
+    } else {
+        text.innerHTML = `<strong>You dont have enough points to purchase this move!<h3>Try answering some more questions to build up your points!</h3></strong>`;
+    }
+}
+
+function gojajaken() {
+    let newPoints = nenPoints -= 110;
+    gonNenPoints.innerHTML = newPoints;
+    text.innerHTML = "Jajaken has now been added to your move list!";
+    attackList.push(jajakenMove);
+}
+
+function goRush() {
+    let newPoints = nenPoints -= 110;
+    gonNenPoints.innerHTML = newPoints;
+    text.innerHTML = "Rush has now been added to your move list!";
+    attackList.push(rushMove);
+}
+
+/*function bonusPoints() {
+    healPoints += Math.floor(Math.random() * 5);
     gonNenPoints.innerText = gonsNenPts;
-}
-
-function subtractPoints() {
-    text.innerHTML = "Sorry but this answer is incorrect!";
-}
-
-function goDodge() {
-    if (gonsNenPts<30) {
-        text.innerHTML = "You don't have enough points to purchase this move.";
-    } else {
-        let newPoints = gonsNenPts - dodge;
-        gonNenPoints.innerHTML = newPoints;
-        text.innerHTML = "You can now dodge attacks in your next fight.";
-        attackList.push(dodge);
-
-    }
-}
-
-function goJajanken() {
-    if (gonNenPoints < 60) {
-        text.innerHTML = "You don't have enough points to purchase this move.";
-    } else {
-
-        let newPoints = gonNenPoints - 60
-        gonNenPoints.innerHTML = newPoints;
-        text.innerHTML = "You can now use Jajanken in your next fight.";
-        attackList.push(jajanken);
-    }
-}
+}*/
+ 
+//Try making a GENERAL function that deals with/encorprates everything that has to do with adding/subtracting points.
 
 function goBuyhealth() {
     
