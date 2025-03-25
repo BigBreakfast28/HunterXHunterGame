@@ -1,9 +1,8 @@
 let nenType = "enhancement";
 let health = 100;
-let punch = 10;
 let bossHealth;
 let nenProficiency = "basic";
-let attackList = [punch];
+let attackList = ['Punch'];
 let nenPoints = 30;
 let dodgeMove;
 let jajakenMove;
@@ -24,6 +23,7 @@ const text = document.querySelector('#gonsText');
 const gonNenPoints = document.querySelector('#gonsNenPoints');
 const gonNenLevel = document.querySelector('#gonNenLevel');
 const gonHealth = document.querySelector('#gonHealth');
+const gonAttacks = document.getElementById('gonAttacks');
 
 
 const gonHome = [
@@ -47,7 +47,7 @@ const locations = [
 const moveList = [
     {
         name: "Move List",
-        "button text": ['Dodge', 'Jajanken', 'Limitation Transformation'],
+        "button text": ['Dodge', 'Jajanken', 'Rush'],
         "button functions": [gododge, gojajaken, goRush],
         text: `<ul><li class='moves'>Dodge: 30 Nen Points </li><li class='moves'>JajaKen: 60 Nen Points </li><li class='moves'>Limitation Transformation: 140 Nen Points </li></ul>`
     }
@@ -121,8 +121,12 @@ gonButton3.onclick = goGonBosses;
 gonHomeButton.onclick = goGonMenu;
 
 gonHealPoints.innerHTML = healPoints;
+gonHealth.innerHTML = health;
+gonNenPoints.innerHTML = nenPoints;
 
-/*button text and functions for each location*/
+/*Put a for loop in here will a <li> for each item to be displayed. 
+Set up a way for the points to push to the displayed array along with the actual array for the fight.*/
+
 function gonMenu(gonHome) {
     gonButton1.innerText = gonHome["button text"][0];
     gonButton2.innerText = gonHome["button text"][1];
@@ -232,12 +236,35 @@ function pointAdd() {
     text.innerHTML = "You're correct! You've gained some nen points and health points!";
     let newHealPoints = healPoints += Math.floor((Math.random() * 5) +5);
     gonHealPoints.innerHTML = newHealPoints;
+    gonButton1.onclick = goStartJourney;
+    gonButton2.onclick = goMovelist;
+    gonButton3.onclick = goGonBosses;
+    gonButton1.innerHTML = "Continue Journey";
+    gonButton2.innerHTML = "Buy Moves";
+    gonButton3.innerHTML = "Fight Bosses";
 }
 
 function pointLoss() {
     let newPoints = nenPoints -= Math.floor((Math.random() * 70)+ 10);
+    if (nenPoints < newPoints) {
+        text.innerHTML = "You're wrong but you don't have enough points for me to subtract!...Luckyyy";
+        gonButton1.onclick = goStartJourney;
+        gonButton2.onclick = goMovelist;
+        gonButton3.onclick = goGonBosses;
+        gonButton1.innerHTML = "Continue Journey";
+        gonButton2.innerHTML = "goMoveList";
+        gonButton3.innerHTML = "Fight Bosses";
+
+    } else {
     gonNenPoints.innerHTML = newPoints;
-    text.innerHTML = "You're wrong, you've had some nen points subtracted from your score.";
+    text.innerHTML = "You're wrong, you've had some nen points subtracted from your score.";  
+    gonButton1.onclick = goStartJourney;
+    gonButton2.onclick = goMovelist;
+    gonButton3.onclick = goGonBosses;
+    gonButton1.innerHTML = "Continue Journey";
+    gonButton2.innerHTML = "Buy Moves";
+    gonButton3.innerHTML = "Fight Bosses";
+    }
 }
 
 function gododge() {
@@ -245,26 +272,80 @@ function gododge() {
     let newPoints = nenPoints -= 70;
     gonNenPoints.innerHTML = newPoints;
     text.innerHTML = "Dodge has now been added to your move list!";
-    attackList.push(dodgeMove);
+    gonButton1.onclick = goStartJourney;
+    gonButton2.onclick = goMovelist;
+    gonButton3.onclick = goGonBosses;
+    gonButton1.innerHTML = "Continue Journey";
+    gonButton2.innerHTML = "Buy Moves";
+    gonButton3.innerHTML = "Fight Bosses";
+    attackList.push("Dodge");
+    for (i=0; i < attackList.length; i++) {
+        gonAttacks.innerHTML +=  `<li> ${attackList[i]} </li>`;
+    }
+    
     } else {
         text.innerHTML = `<strong>You dont have enough points to purchase this move!<h3>Try answering some more questions to build up your points!</h3></strong>`;
+        gonButton1.onclick = goStartJourney;
+        gonButton2.onclick = goMovelist;
+        gonButton3.onclick = goGonBosses;
+        gonButton1.innerHTML = "Continue Journey";
+        gonButton2.innerHTML = "Buy Moves";
+        gonButton3.innerHTML = "Fight Bosses";
     }
 }
 
 function gojajaken() {
+    if (nenPoints > 110) {
     let newPoints = nenPoints -= 110;
     gonNenPoints.innerHTML = newPoints;
     text.innerHTML = "Jajaken has now been added to your move list!";
-    attackList.push(jajakenMove);
+    attackList.push("Jajaken");
+    gonButton1.onclick = goStartJourney;
+    gonButton2.onclick = goMovelist;
+    gonButton3.onclick = goGonBosses;
+    gonButton1.innerHTML = "Continue Journey";
+    gonButton2.innerHTML = "Buy Moves";
+    gonButton3.innerHTML = "Fight Bosses";
+    for (i=0; i < attackList.length; i++) {
+        gonAttacks.innerHTML +=  `<li> ${attackList[i]} </li>`;
+    }
+    } else {
+        text.innerHTML = `<strong>You dont have enough points to purchase this move!<h3>Try answering some more questions to build up your points!</h3></strong>`;
+        gonButton1.onclick = goStartJourney;
+        gonButton2.onclick = goMovelist;
+        gonButton3.onclick = goGonBosses;
+        gonButton1.innerHTML = "Continue Journey";
+        gonButton2.innerHTML = "Buy Moves";
+        gonButton3.innerHTML = "Fight Bosses";
+    }
 }
 
 function goRush() {
-    let newPoints = nenPoints -= 110;
-    gonNenPoints.innerHTML = newPoints;
-    text.innerHTML = "Rush has now been added to your move list!";
-    attackList.push(rushMove);
+    if (nenPoints > 200) {
+        let newPoints = nenPoints -= 200;
+        gonNenPoints.innerHTML = newPoints;
+        text.innerHTML = "Rush has now been added to your move list!";
+        attackList.push("Rush"); 
+        gonButton1.onclick = goStartJourney;
+        gonButton2.onclick = goMovelist;
+        gonButton3.onclick = goGonBosses;
+        gonButton1.innerHTML = "Continue Journey";
+        gonButton2.innerHTML = "Buy Moves";
+        gonButton3.innerHTML = "Fight Bosses";
+        for (i=0; i < attackList.length; i++) {
+            gonAttacks.innerHTML +=  `<li> ${attackList[i]} </li>`;
+        }
+    } else {
+        text.innerHTML = `<strong>You dont have enough points to purchase this move!<h3>Try answering some more questions to build up your points!</h3></strong>`;
+        gonButton1.onclick = goStartJourney;
+        gonButton2.onclick = goMovelist;
+        gonButton3.onclick = goGonBosses;
+        gonButton1.innerHTML = "Continue Journey";
+        gonButton2.innerHTML = "Buy Moves";
+        gonButton3.innerHTML = "Fight Bosses";
+    }
+    
 }
-
 /*function bonusPoints() {
     healPoints += Math.floor(Math.random() * 5);
     gonNenPoints.innerText = gonsNenPts;

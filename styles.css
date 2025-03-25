@@ -88,6 +88,7 @@
     padding: 1.5vw;
     border-radius: 45%;
     background-color: yellowgreen;
+    margin-top: 1vw;
 }
 .gonsButtons:hover {
     background-color: red;
@@ -142,6 +143,7 @@
     margin: 1vw 0vw 1vw 0vw;
     display: none;
 }
+
 
 
 /*@media screen and (min-width: 389px) and (max-width: 845) {

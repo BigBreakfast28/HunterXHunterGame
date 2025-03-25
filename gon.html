@@ -13,16 +13,20 @@
             <button id="gonAdventure">Adventure Screen</button>
 
         <fieldset>
-            <li class="attributeList">
-                <span class="gonAttributes">Nen Points: <span id="gonsNenPoints">50</span></span>
+            <div>
+                <p class="gonAttributes">Attack List:<span id="gonAttacks"></span></p>
+            </div>
+            <div>
+                <span class="gonAttributes">Nen Points: <span id="gonsNenPoints"></span></span>    
                 <span class="gonAttributes">Heal Points: <span id="gonHealPoints"></span></span>
-                <span class="gonAttributes">Health: <span id="gonHealth">100</span></span>
-            </li>
-            <li class="actionButtons">
+                <span class="gonAttributes">Health:<span id="gonHealth"></span></span>
+            </div>
+            
+            <div class="actionButtons">
                 <button class="gonsButtons" id="gonButton1">Start Journey</button>
                 <button class="gonsButtons" id="gonButton2">Learn New Move</button>
                 <button class="gonsButtons" id="gonButton3">Boss Fight</button> 
-            </li>
+            </div>
             <div>
                 <div id="gosStats">
                     
@@ -33,7 +37,7 @@
                 </div>
             </div>
             <div id="gonsText">
-                Welcome to Gon's Adventure, select an option to get started.
+                <h3>Welcome to Gon's Adventure, select an option to get started.</h3>
             </div>
         </fieldset>
     </div>
