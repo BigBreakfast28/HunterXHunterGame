@@ -144,7 +144,27 @@
     display: none;
 }
 
+/*#monsterHealth {
+    background-color: red;
+    padding: 0.5vw;
+    margin: 1vw 0vw 1vw 0vw;
+    height: 5px;
+    width: 50px;
+    position: relative;
+    display: none;
+}*/
 
+#monsterName {
+    color: white;
+    font-size: 700;
+    font-size: 1.4em;
+}
+
+#monsterHealthDigital {
+    color: white;
+    font-size: 700;
+    font-size: 1.4em;
+}
 
 /*@media screen and (min-width: 389px) and (max-width: 845) {
     .hunterHome {
