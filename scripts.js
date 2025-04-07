@@ -259,6 +259,12 @@ function minorHealthSubtract() {
             if (gonHealth.innerHTML <= 0) {
                 text.innerHTML = "You've lost. Try again or continue your journey!";
                 clearInterval(minorTimer);
+                gonButton1.onclick = goStartJourney;
+                gonButton2.onclick = goMovelist;
+                gonButton3.onclick = goGonBosses;
+                gonButton1.innerHTML = "Continue Journey";
+                gonButton2.innerHTML = "Buy Moves";
+                gonButton3.innerHTML = "Fight Bosses";
             }
     }
     let minorTimer = setInterval(startIt,1000);
