@@ -11,14 +11,31 @@
             <h1 class="optionsTitle">Welcome to Gon's Adventure, it would be best to start off training before attacking a boss.</h1>
             <button id="characterSelection"><a class="charLink" href="game.html">Go back to character selection</a></button>
             <button id="gonAdventure">Adventure Screen</button>
+            <button id="restoreHealth">Restore Health</button>
         <fieldset>
             <div>
-                <p class="gonAttributes">Attack List:<span id="gonAttacks"></span></p>
+                <div class="gonAttributes">
+                    <h3>Attack List:</h3>
+                    <p id="gonAttacks"></p>
+                </div>
             </div>
+            <div class="lifestock">
+                <div>
+                    <span class="lives">Lives:</span>
+                    <span id="heart1"></span>
+                    <span id="heart2"></span>
+                    <span id="heart3"></span>
+                </div> 
+            </div>
+
             <div>
                 <span class="gonAttributes">Nen Points: <span id="gonsNenPoints"></span></span>    
                 <span class="gonAttributes">Heal Points: <span id="gonHealPoints"></span></span>
                 <span class="gonAttributes">Health:<span id="gonHealth"></span></span>
+                <div class="bosses">
+                    <h3>Bosses Defeated: </h3>
+                    <p id="bossesdefeated"></p>
+                </div>
             </div>
             
             <div class="actionButtons">
@@ -27,15 +44,15 @@
                 <button class="gonsButtons" id="gonButton3">Boss Fight</button> 
             </div>
             <div>
-                <div id="gosStats">
-                    
-                </div>
-                <div id="monsterStats"> 
+                <div id="gonStats">
+            </div>
+
+            <div id="monsterStats"> 
                 <span id="monsterName"></span>
                 <span id="monsterHealthDigital"></span>
                 <span id="monsterHealth"></span>
-                </div>
             </div>
+    
             <div id="gonsText">
                 <h3>Welcome to Gon's Adventure, select an option to get started.</h3>
             </div>
