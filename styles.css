@@ -294,6 +294,20 @@
     color: white;
     padding-left: 1vw;
 }
+/*Killuas Page*/
+#homeButton {
+    padding: 2vw;
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+#homeButton:hover {
+    background-color: cornflowerblue;
+}
+
+
 
 /*@media screen and (min-width: 389px) and (max-width: 845) {
     .hunterHome {

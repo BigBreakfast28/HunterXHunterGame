@@ -54,7 +54,7 @@ const locations = [
         name: "Arc Options",
         "button text": ['Hunter Exam','Phantom Troupe', 'Chimera Ant'],
         "button functions": [goHunterExam, goPhantonTroupe, goChimeraAnt],
-        text: "Which Arc are we going for first? I suggest you do them in order."
+        text: "Which Arc are we going for first? Answer questions correctly to gain nen and heal points."
     },
 ]
 
@@ -97,6 +97,72 @@ const gonExam = [
         "button text": ['311th', '287th', '425th'],
         "button functions": [pointLoss, pointAdd, pointLoss],
         text: "What is the number of the hunter exam that Gon attended?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['April 1st', 'January 7th', 'May 28th'],
+        "button functions": [pointLoss, pointAdd, pointLoss],
+        text: "What day does the hunter exam start?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['8', '21', 'None'],
+        "button functions": [pointLoss, pointLoss, pointAdd],
+        text: "What is the minimum age to enter the exams"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Unlimited', 'Three', 'Once'],
+        "button functions": [pointAdd, pointLoss, pointLoss],
+        text: "How many times can a person enter the hunter exams?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Unlimited', 'Three', 'Once'],
+        "button functions": [pointAdd, pointLoss, pointLoss],
+        text: "How many times can a person enter the hunter exams?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Unlimited', 'Three', 'Once'],
+        "button functions": [pointAdd, pointLoss, pointLoss],
+        text: "How many times can a person enter the hunter exams?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Dodge Ball', 'Hide & Seek', 'Take The Ball'],
+        "button functions": [pointLoss, pointLoss, pointAdd],
+        text: "What game did Killua and Gon play with Netero?"
+    },   
+    {
+        name: "Hunter Exam",
+        "button text": ['36 Hours', '72 Hours', '12 Hours'],
+        "button functions": [pointLoss, pointAdd, pointLoss],
+        text: "How long did the examines have to get down from Trick Tower?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Gon', 'Sedokan', 'Majtani'],
+        "button functions": [pointLoss, pointLoss, pointAdd],
+        text: "Who does Kurapika have a death match with in Trick Tower?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Hanzo', 'Satotz', 'Kurapika'],
+        "button functions": [pointAdd, pointLoss, pointLoss],
+        text: "Who is Gon's first match in the final phase of the exam?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Illumi', 'Hisoka', 'Hanzo'],
+        "button functions": [pointLoss, pointAdd, pointLoss],
+        text: "Who is Kurapika's first match in the final phase of the exam?"
+    },
+    {
+        name: "Hunter Exam",
+        "button text": ['Zoldyck', 'Fring', 'Padokea'],
+        "button functions": [pointAdd, pointLoss, pointLoss],
+        text: "What is Killua's last name?"
     }
 ]
 
@@ -121,9 +187,81 @@ const phantomTroupArc = [
     },
     {
         name: "York New City",
-        "button text": ['Massacre', 'Underground Auction' , 'Kurapika Fights'],
+        "button text": ['Massacre', 'Regular Auction' , 'Kurapika Fights'],
         "button functions" : [pointAdd, pointLoss, pointLoss],
-        text : "what happened at he Underground Auction?"
+        text : "What happened at he Underground Auction?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Auction', 'Phantom Troupe Fight' , 'Learn Nen'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "What is Gon's purpose of traveling to York New City?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Netero', 'Special Agent' , 'Hunter Website'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "How does Gon and Killua find out about Greed Island?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Anyone', 'Nen Users' , 'Hunters Only'],
+        "button functions" : [pointLoss, pointAdd, pointLoss],
+        text : "Who is the Greed Island game for?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Dalzollene', 'Baise' , 'Basho'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "Who does Kurapika work for?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Gon', 'Netero' , 'Chrollo'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "Who is the Phantom Troupe Leader?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Arm Wrestling', 'Street Fight' , 'Steal Special Nen Item'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "What do Gon, Killua and Leorio do to raise money for the auction?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Cobra', 'Spiders' , 'Bulls'],
+        "button functions" : [pointLoss, pointAdd, pointLoss],
+        text : "What is the Phantom Troupe also known as?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Hisoka', 'Body Guards' , 'Shadow Beast'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "Who do the Ten Dons summon to fight the Phantom Troupe?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Chain Jail', 'Ultimate Punch' , 'Ultimate Kick'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "What does Killua use to subdue Uvogin?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Phinks', 'Nobunaga' , 'Pakunoda'],
+        "button functions" : [pointLoss, pointAdd, pointLoss],
+        text : "Who wants to nominate Gon to be a member of the Phantom Troupe?"
+    },
+    {
+        name: "York New City",
+        "button text": ['Zenji', 'Nobunaga' , 'Chrollo'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "who does Silva and Zeno team up to attack?"
+    },
+    {
+        name: "York New City",
+        "button text": ['For Money', 'For Power' , 'To Fight The Boss'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "Why did Hisoka join the Phantom Troupe?"
     }
 ]
 
@@ -151,7 +289,80 @@ const chimerAntArc = [
         "button text": ['The Elites', 'Strong Ant' , 'Royal Guards'],
         "button functions" : [pointLoss, pointLoss, pointAdd],
         text : "What were the elites of the Queens army called?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Spawn Ant King', 'Increase Appetite' , 'Drastically Increase Strength'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "What is the Queens ultimate goal?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Queen', 'King' , 'Hisoka'],
+        "button functions" : [pointLoss,pointAdd,pointLoss],
+        text : "Who is the royal guard more loyal to?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Child', 'Teen' , 'Adult'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "When Chimera Ant hatch, what is their age range?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Meruem', 'Gaftz' , 'Inzagi'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "what is the Ants King name?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Meruem', 'Gaftz' , 'Inzagi'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "what is the Ant King name?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Youpi', 'Pituo' , 'Pouf'],
+        "button functions" : [pointLoss, pointAdd, pointLoss],
+        text : "Who is responsible for killig Kite?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Youpi', 'Colt' , 'Meleron'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "Select a member of the royal guard!"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Welfin', 'Bloster' , 'Pouf'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "Select a member of the royal guard!"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Welfin', 'Bloster' , 'Pouf'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "Select a member of the royal guard!"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Zazan', 'Meleoron' , 'Pouf'],
+        "button functions" : [pointLoss, pointAdd, pointLoss],
+        text : "Who had the ability to blend in with their environment?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Pike', 'Rammot' , 'Flutter'],
+        "button functions" : [pointLoss, pointAdd, pointAdd],
+        text : "Whose body did Ikalgo take control over?"
+    },
+    {
+        name: "Evil General",
+        "button text": ['Ikalgo', 'Snake' , 'Boki'],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
+        text : "Who worked with the humans to attack the ant palace?"
     }
+
 ]
 
 const gonBosses = [
@@ -298,17 +509,17 @@ function goGonBosses() {
 }
 
 function goHunterExam() {
-   gonHunterExam(gonExam[Math.floor(Math.random() * 5)]);
+   gonHunterExam(gonExam[Math.floor(Math.random() * 16)]);
    monsterStats.style.display = "none";
 }
 
 function goPhantonTroupe() {
-    yorkNewCity(phantomTroupArc[Math.floor(Math.random() * 4)]);
+    yorkNewCity(phantomTroupArc[Math.floor(Math.random() * 16)]);
     monsterStats.style.display = "none";
 }
 
 function goChimeraAnt() {
-    humansVsAnts(chimerAntArc[Math.floor(Math.random() * 4)]);
+    humansVsAnts(chimerAntArc[Math.floor(Math.random() * 16)]);
     monsterStats.style.display = "none";
 }
 
