@@ -308,10 +308,109 @@
 }
 
 
-
-/*@media screen and (min-width: 389px) and (max-width: 845) {
-    .hunterHome {
-       background-position-x: -80%;
+@media screen and (min-width: 100px) and (max-width: 900px) {
+    .optionsTitle {
+        font-size: 8vw;
     }
 
-}*/
+    .gonAttributes {
+        padding-bottom: 8vw;
+    }
+
+    #heart1 {
+        position: absolute;
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        transform: rotate(-45deg);
+        margin-left: 1vw;
+        }
+        
+    #heart1::after {
+        background-color: red;
+         content: "";
+        border-radius: 50%;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: 0px;
+        left: 7px;
+    }
+        
+    #heart1::before{
+        content: "";
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: -7px;
+    }
+    
+    #heart2 {
+        position: absolute;
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        transform: rotate(-45deg);
+        margin-left: 7vw;
+        }
+        
+    #heart2::after {
+        background-color: red;
+         content: "";
+        border-radius: 50%;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: 0px;
+        left: 7px;
+    }
+        
+    #heart2::before{
+        content: "";
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: -7px;
+    }
+    
+    #heart3 {
+        position: absolute;
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        transform: rotate(-45deg);
+        margin-left: 13vw;
+        }
+        
+    #heart3::after {
+        background-color: red;
+        content: "";
+       border-radius: 50%;
+       position: absolute;
+       height: 10px;
+       width: 10px;
+       top: 0px;
+       left: 7px;
+    }
+        
+    #heart3::before{
+        content: "";
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: -7px;
+    }
+
+    .bosses {
+        padding-bottom: 12vw;
+        padding-right: 15vw;
+    }
+
+    
+}
