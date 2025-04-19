@@ -26,6 +26,7 @@ const bossesDefeated = document.getElementById('bossesdefeated');
 const heart1 = document.getElementById('heart1');
 const heart2 = document.getElementById('heart2');
 const heart3 = document.getElementById('heart3');
+const charSelection = document.getElementById('characterSelection');
 
 const gonButton1 = document.querySelector('#gonButton1');
 const gonButton2 = document.querySelector('#gonButton2');
@@ -405,6 +406,7 @@ gonButton2.onclick = goMovelist;
 gonButton3.onclick = goGonBosses;
 gonHomeButton.onclick = goGonMenu;
 restoreHealth.onclick = restoreGonHealth;
+charSelection.onclick = selection;
 
 gonHealPoints.innerHTML = healPoints;
 gonHealth.innerHTML = health;
@@ -414,7 +416,11 @@ gonNenPoints.innerHTML = nenPoints;
 Set up a way for the points to push to the displayed array along with the actual array for the fight.*/
 
 function goHome() {
-    window.location.href = "index.html"
+    window.location.href = "index.html";
+}
+
+function selection() {
+    window.location.href = "game.html";
 }
 
 function gonMenu(gonHome) {

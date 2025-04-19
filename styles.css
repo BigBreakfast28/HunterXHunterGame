@@ -98,17 +98,16 @@
 }
 
 #characterSelection {
-    background-color: yellowgreen;
+    background-color: orangered;
     border-radius: 45%;
     padding: 1.5vw;
     margin: 1vw;
+    color: white;
 }
 
 #characterSelection:hover {
     font-size: 1vw;
 }
-
-
 
 .gonAttributes {
     color: white;
@@ -309,12 +308,78 @@
 
 
 @media screen and (min-width: 100px) and (max-width: 900px) {
+    .enterGame {
+        padding: 5vw;
+    }
+
+    .hunterHome {
+        background-position-x: 53%;
+    }
+
+    .characterOption {
+        padding: 40vw;
+        background-position-x: 51%;
+    }
+
+    .secondPic {
+        background-image: url(images/pituoHoldingKitesHead.jpg);
+        padding: 47vw;
+        background-position-y: 37%;
+        background-position-x: 50%;
+        background-repeat: no-repeat;
+    }
+
+    .gon-bg {
+        background-position-x: 50%;
+    }
+
+    #gonButton {
+        padding: 6vw;
+    }
+
+    #killuaButton {
+        padding: 6vw;
+    }
+    
+    .buttonArea {
+        padding-right: 20vw;
+    }
+
     .optionsTitle {
         font-size: 8vw;
     }
 
     .gonAttributes {
         padding-bottom: 8vw;
+    }
+
+    .gonsButtons {
+        padding: 5vw;
+    }
+
+    .gonsButtons:hover {
+        background-color: yellowgreen;
+    }
+
+    #gonAdventure:hover {
+        background-color: yellowgreen;
+    
+    }
+
+    #characterSelection {
+        padding: 4vw;
+    }
+
+    #characterSelection:hover {
+        font-size: 6vw;
+    }
+
+    #gonAdventure {
+        padding: 4vw;
+    }
+
+    #restoreHealth {
+        padding: 4vw;
     }
 
     #heart1 {
