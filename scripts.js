@@ -139,7 +139,7 @@ const gonExam = [
         name: "Hunter Exam",
         "button text": ['36 Hours', '72 Hours', '12 Hours'],
         "button functions": [pointLoss, pointAdd, pointLoss],
-        text: "How long did the examines have to get down from Trick Tower?"
+        text: "How long did the examinees have to get down from Trick Tower?"
     },
     {
         name: "Hunter Exam",
@@ -244,7 +244,7 @@ const phantomTroupArc = [
         name: "York New City",
         "button text": ['Chain Jail', 'Ultimate Punch' , 'Ultimate Kick'],
         "button functions" : [pointAdd, pointLoss, pointLoss],
-        text : "What does Killua use to subdue Uvogin?"
+        text : "What does Kurapika use to subdue Uvogin?"
     },
     {
         name: "York New City",
@@ -312,14 +312,14 @@ const chimerAntArc = [
     {
         name: "Evil General",
         "button text": ['Meruem', 'Gaftz' , 'Inzagi'],
-        "button functions" : [pointLoss, pointLoss, pointAdd],
+        "button functions" : [pointAdd, pointLoss, pointLoss],
         text : "what is the Ants King name?"
     },
     {
         name: "Evil General",
-        "button text": ['Meruem', 'Gaftz' , 'Inzagi'],
-        "button functions" : [pointAdd, pointLoss, pointLoss],
-        text : "what is the Ant King name?"
+        "button text": ['Killua', 'Gon' , 'Netero'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
+        text : "who fought Meruem?"
     },
     {
         name: "Evil General",
@@ -336,13 +336,13 @@ const chimerAntArc = [
     {
         name: "Evil General",
         "button text": ['Welfin', 'Bloster' , 'Pouf'],
-        "button functions" : [pointAdd, pointLoss, pointLoss],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
         text : "Select a member of the royal guard!"
     },
     {
         name: "Evil General",
-        "button text": ['Welfin', 'Bloster' , 'Pouf'],
-        "button functions" : [pointAdd, pointLoss, pointLoss],
+        "button text": ['Snake', 'Ikalgo' , 'Pituo'],
+        "button functions" : [pointLoss, pointLoss, pointAdd],
         text : "Select a member of the royal guard!"
     },
     {
